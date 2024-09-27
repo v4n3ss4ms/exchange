@@ -1,0 +1,29 @@
+<div>
+  <h1>Lista de Cuentas</h1>
+  <h2>Tipo de Cambio BTC a USD: {{ exchangeRate | number: '1.2-2' }}</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Account name</th>
+      <th>Category</th>
+      <th>Tag</th>
+      <th>Balance (BTC)</th>
+      <th>Available balance (BTC)</th>
+      <th>Balance (USD)</th>
+      <th>Available balance (USD)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of accounts">
+      <td>{{ account.name }}</td>
+      <td>{{ account.category }}</td>
+      <td>{{ account.tag }}</td>
+      <td>{{ account.balance | number: '1.4-4' }}</td>
+      <td>{{ account.availableBalance | number: '1.4-4' }}</td>
+      <td>{{ account.balance * exchangeRate | number: '1.2-2' }}</td>
+      <td>{{ account.availableBalance * exchangeRate | number: '1.2-2' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
